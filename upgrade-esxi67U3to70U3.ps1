@@ -16,7 +16,7 @@ function upgrade-esxi67U3to70U3 ()
 	.Example
     . .\upgrade-esxi67U3to70U3
     upgrade-esxi67U3to70U3 -vmhost s1c-esxi172.prod.paneravirt.com
-    "hosta" | upgrade-esxi67U3to70U3
+    "s1c-esxi172.prod.paneravirt.com" | upgrade-esxi67U3to70U3
 	.Notes
 	NAME: upgrade-esxi67U3to70U3.ps1
     AUTHOR: Chris Federico
@@ -72,7 +72,7 @@ function upgrade-esxi67U3to70U3 ()
         attach-baseline -entity $vmhostesxi -baseline $baseline
         write-host "Task 2 INFO: Next remediate"
         # Remediate baseline for $vmhostesxi
-        Remediate-Inventory -Entity $vmhostesxi -Baseline $baseline -Confirm:$false -ErrorAction SilentlyContinue
+        Remediate-Inventory -Entity $vmhostesxi -Baseline $baseline -Confirm:$false -ErrorAction Inquire
 
         #######################################
         # Task 3 Change local scratch location#
